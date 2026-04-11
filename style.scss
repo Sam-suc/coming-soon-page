@@ -1,0 +1,137 @@
+$soft-red: #ce9797;
+$dark-gray: #413a3a;
+$gradient-btn: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+
+// 1. BASE (Mobile Default)
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #fff5f5);
+}
+
+.logo {
+  padding: 2rem;
+  text-align: left;
+  img {
+    width: 100px;
+  }
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+
+.content {
+  padding: 4rem 2rem;
+
+  .desktop-logo {
+    display: none;
+  } // Hidden on mobile
+
+  h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: $dark-gray;
+    margin-bottom: 1.5rem;
+
+    span {
+      display: block;
+      font-weight: 300;
+      color: $soft-red;
+    }
+  }
+
+  p {
+    color: $soft-red;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+}
+
+// Input Field styling
+.email-form {
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid $soft-red;
+    border-radius: 2rem;
+    outline: none;
+    &::placeholder {
+      color: $soft-red;
+      opacity: 0.5;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    color: white;
+    top: 0;
+    height: 100%;
+    width: 65px;
+    align-items: center;
+    border-radius: 2rem;
+    border: none;
+    background: $gradient-btn;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(206, 151, 151, 0.4);
+  }
+}
+.submit {
+  color: white;
+  font-size: 19px;
+}
+
+// 2. DESKTOP DESIGN (At 1024px and wider)
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row-reverse; // Puts image on the right, content on the left
+    min-height: 100vh;
+  }
+
+  .logo {
+    display: none;
+  } // Hide mobile logo
+
+  .hero-image {
+    width: 140%; // Image takes 40% of the screen width
+    img {
+      height: 100vh;
+      object-fit: cover;
+      object-position: 10% 80%;
+    }
+  }
+
+  .content {
+    width: 60%;
+    text-align: left;
+    padding: 6rem 10%;
+    align-self: center;
+
+    .desktop-logo {
+      display: block;
+      margin-bottom: 10rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      max-width: 450px;
+    }
+    .email-form {
+      max-width: 450px;
+    }
+  }
+}
