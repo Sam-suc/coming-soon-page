@@ -1,6 +1,7 @@
-$soft-red: #ce9797;
-$dark-gray: #413a3a;
-$gradient-btn: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+$soft-red: hsl(0, 36%, 70%);
+$red: hsl(0, 93%, 68%);
+$dark-gray: hsl(0, 6%, 24%);
+$gradient-btn: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 
 // 1. BASE (Mobile Default)
 * {
@@ -57,10 +58,16 @@ body {
 }
 
 // Input Field styling
-.email-form {
+
+#email-form {
   position: relative;
 
+  .hidden {
+    display: none;
+  }
+
   input {
+    display: inline;
     width: 100%;
     padding: 1rem 1.5rem;
     border: 1px solid $soft-red;
@@ -72,21 +79,32 @@ body {
     }
   }
 
+  #error-icon {
+    position: absolute;
+    margin-top: 12px;
+    margin-left: -7rem;
+  }
+
   button {
     position: absolute;
-    right: 0;
-    color: white;
-    top: 0;
-    height: 100%;
-    width: 65px;
-    align-items: center;
-    border-radius: 2rem;
+    padding: 0.85rem 2rem;
     border: none;
+    margin-left: -5rem;
     background: $gradient-btn;
+    border-radius: 2rem;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(206, 151, 151, 0.4);
+    box-shadow: 0 10px 20px rgba($soft-red, 0.3);
+
+    &:active {
+      filter: brightness(1.1);
+      transform: scale(1.02);
+    }
   }
 }
+.error-text {
+  margin-top: 10px;
+}
+
 .submit {
   color: white;
   font-size: 19px;
@@ -94,6 +112,9 @@ body {
 
 // 2. DESKTOP DESIGN (At 1024px and wider)
 @media (min-width: 1024px) {
+  body {
+    overflow-y: hidden;
+  }
   .container {
     display: flex;
     flex-direction: row-reverse; // Puts image on the right, content on the left
@@ -105,7 +126,7 @@ body {
   } // Hide mobile logo
 
   .hero-image {
-    width: 140%; // Image takes 40% of the screen width
+    width: 55%; // Image takes 40% of the screen width
     img {
       height: 100vh;
       object-fit: cover;

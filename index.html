@@ -53,15 +53,37 @@
           launch deals.
         </p>
 
-        <form class="email-form">
-          <input type="email" placeholder="Email Address" required />
-          <button type="submit">
-            <span class="material-symbols-outlined submit">
-              arrow_forward_ios
-            </span>
-          </button>
+        <form id="email-form" novalidate>
+          <div class="input-group">
+            <input
+              id="email-input"
+              type="email"
+              placeholder="Email Address"
+              required
+            />
+            <!-- Error icon (hidden by default) -->
+            <img
+              class="hidden"
+              id="error-icon"
+              src="images/icon-error.svg"
+              alt=""
+            />
+
+            <button type="submit">
+              <span class="material-symbols-outlined submit">
+                arrow_forward_ios
+              </span>
+            </button>
+          </div>
+
+          <!-- Error Text (hidden by default) -->
+          <p class="error-text hidden" id="error-message">
+            Please provide a valid email
+          </p>
         </form>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
