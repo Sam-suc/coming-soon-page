@@ -19,6 +19,7 @@ form.addEventListener("submit", (e) => {
 
     // add red border
     emailInput.style.borderColor = "hsl(0, 82%, 59%)";
+    errorMessage.style.color = "red";
   } else {
     // If valid hide errors
     errorIcon.classList.add("hidden");
